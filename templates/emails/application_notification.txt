@@ -1,0 +1,12 @@
+НОВАЯ ЗАЯВКА С САЙТА {{ site_name }}
+
+Имя клиента: {{ application.name }}
+Телефон: {{ application.phone|default:"Не указан" }}
+Email: {{ application.email|default:"Не указан" }}
+Сообщение: 
+{{ application.message }}
+
+Дата отправки: {{ application.created_at|date:"d.m.Y H:i" }}
+
+---
+Это автоматическое уведомление от системы сайта {{ site_name }}

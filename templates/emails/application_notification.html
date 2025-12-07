@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        .content { background: #f9f9f9; padding: 20px; }
+        .field { margin-bottom: 15px; }
+        .label { font-weight: bold; color: #2c3e50; }
+        .footer { background: #ecf0f1; padding: 15px; text-align: center; font-size: 12px; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Новая заявка с сайта</h1>
+            <p>{{ site_name }}</p>
+        </div>
+        
+        <div class="content">
+            <div class="field">
+                <span class="label">👤 Имя клиента:</span> {{ application.name }}
+            </div>
+            <div class="field">
+                <span class="label">📞 Телефон:</span> {{ application.phone|default:"Не указан" }}
+            </div>
+            <div class="field">
+                <span class="label">✉️ Email:</span> {{ application.email|default:"Не указан" }}
+            </div>
+            <div class="field">
+                <span class="label">💬 Сообщение:</span><br>
+                {{ application.message|linebreaks }}
+            </div>
+            <div class="field">
+                <span class="label">📅 Дата отправки:</span> {{ application.created_at|date:"d.m.Y H:i" }}
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Это автоматическое уведомление от системы сайта {{ site_name }}</p>
+        </div>
+    </div>
+</body>
+</html>
